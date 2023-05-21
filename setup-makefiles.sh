@@ -25,18 +25,10 @@ source "${HELPER}"
 setup_vendor "${DEVICE_COMMON}" "${VENDOR}" "${ANDROID_ROOT}" true
 
 # Warning headers and guards
-write_headers "jasmine_sprout jason lavender platina tulip wayne whyred"
+write_headers "whyred"
 
 # The standard common blobs
 write_makefiles "${MY_DIR}/proprietary-files.txt" true
-
-printf "\n%s\n" "ifeq (\$(BOARD_HAVE_QCOM_FM),true)" >> "${PRODUCTMK}"
-write_makefiles "${MY_DIR}/proprietary-files-fm.txt" true
-echo "endif" >> "${PRODUCTMK}"
-
-printf "\n%s\n" "ifeq (\$(BOARD_HAVE_IR),true)" >> "${PRODUCTMK}"
-write_makefiles "${MY_DIR}/proprietary-files-ir.txt" true
-echo "endif" >> "${PRODUCTMK}"
 
 # Finish
 write_footers
